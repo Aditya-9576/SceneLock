@@ -1,0 +1,45 @@
+{
+  "project": "SceneLock",
+  "assignment": "Kuku AI Generalist Problem Statement 3",
+  "review_date": "2026-11-08",
+  "software_test_result": {"passed": 187, "failed": 0, "observed_duration_seconds": 2.29},
+  "dataset_result": {"labeled_cases": 15, "labeled_facts": 25, "validation_errors": 0},
+  "keyword_baseline_not_gemini": {"TP": 2, "FP": 3, "TN": 5, "FN": 5, "precision": 0.4, "recall": 0.2857},
+  "gemini_evaluation": {
+    "authenticated_original_cases": 0,
+    "authenticated_unseen_cases": 0,
+    "raw_responses": 0,
+    "precision": null,
+    "recall": null,
+    "latency_ms": null,
+    "reason": "No configured Gemini API credentials"
+  },
+  "public_github_url": null,
+  "public_streamlit_url": null,
+  "pdf_pages": 2,
+  "statuses": {
+    "problem_3_product_framing": "Partially Complete",
+    "source_architecture": "Complete",
+    "unseen_input_acceptance_mocked": "Complete",
+    "gemini_sdk_integration_live_auth": "Partially Complete",
+    "semantic_model_quality": "Blocked",
+    "evidence_validation": "Complete",
+    "severity_and_summary_rules": "Complete",
+    "shot_scope_live_accuracy": "Partially Complete",
+    "human_review": "Complete",
+    "json_csv_export": "Complete",
+    "automated_qa": "Complete",
+    "genuine_model_raw_outputs": "Blocked",
+    "verified_public_prototype_link": "Blocked",
+    "two_page_solution_pdf": "Complete",
+    "optional_walkthrough_script": "Complete",
+    "optional_recorded_video": "Blocked",
+    "submission_zip_preparation": "Complete"
+  },
+  "fixed_defects": [
+    "QA-01 punctuation-only screenplay/prompt/shot intent/evidence accepted",
+    "QA-02 deployment example keys incorrectly considered configured"
+  ],
+  "not_an_authentic_gemini_result": true,
+  "full_submission_ready": false
+}

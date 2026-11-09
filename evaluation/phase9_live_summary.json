@@ -1,0 +1,100 @@
+{
+  "evaluation_type": "phase9_actual_gemini_evaluation_only_if_authenticated",
+  "recorded_at_utc": "2026-11-08T10:29:28.181068+00:00",
+  "ground_truth_sha256": "4fd9b3b5353d6c0c2510cfaf2ef1a1cb8d0108ab14c04a2c4bc8c3a183b4891c",
+  "original_case_count": 15,
+  "unseen_case_count": 3,
+  "model": "gemini-3.6-flash",
+  "prompt_version": "scenelock-semantic-v3-phase9",
+  "key_configured": false,
+  "authenticated_successful_requests": 0,
+  "api_failure_count": 0,
+  "validation_failure_count": 0,
+  "raw_response_files_saved": 0,
+  "model_issue_metrics": null,
+  "unseen_holdout_metrics": null,
+  "cases": [
+    {
+      "test_id": "T01",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T02",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T03",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T04",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T05",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T06",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T07",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T08",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T09",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T10",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T11",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T12",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T13",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T14",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "T15",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "U01",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "U02",
+      "status": "not_run_no_credentials"
+    },
+    {
+      "test_id": "U03",
+      "status": "not_run_no_credentials"
+    }
+  ],
+  "run_status": "BLOCKED_NO_GEMINI_API_KEY",
+  "explicitly_not_measured": [
+    "Gemini issue-level precision and recall",
+    "Gemini semantic equivalence accuracy",
+    "Gemini false-positive rate",
+    "Gemini shot-scope error rate",
+    "Gemini evidence failures and API failures",
+    "Gemini inference latency",
+    "Any Gemini AI mistake or a model fix/retest"
+  ]
+}

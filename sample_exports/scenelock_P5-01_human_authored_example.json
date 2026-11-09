@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "inputs": {
+    "screenplay_text": "Meera secretly hides the key before turning toward Arjun. Her eyes widen in fear.",
+    "video_prompt": "Tight close-up of Meera's frightened face, with soft warm lighting.",
+    "shot_type": "Character close-up",
+    "shot_intent": "Only Meera's reaction after she has hidden the key.",
+    "episode_id": null,
+    "scene_id": null,
+    "shot_id": null
+  },
+  "analysis": {
+    "metadata": {
+      "schema_version": "1.0",
+      "analysis_id": "db43d996-e7cc-4ab8-a1aa-ba0a52a8c0b4",
+      "created_at_utc": "2026-11-08T09:19:05.472676Z",
+      "episode_id": null,
+      "scene_id": null,
+      "shot_id": null,
+      "shot_type": "Character close-up",
+      "shot_intent": "Only Meera's reaction after she has hidden the key.",
+      "analysis_engine": "synthetic_fixture",
+      "provider": "human_authored_fixture",
+      "model": "not_a_gemini_result",
+      "duration_ms": 0
+    },
+    "facts": [
+      {
+        "fact_id": "F1",
+        "category": "critical_action",
+        "entity": "Meera",
+        "required_detail": "Meera previously hid the key.",
+        "source_evidence": "Meera secretly hides the key",
+        "comparison_status": "Not Applicable",
+        "applicability_reason": "The specified shot occurs after the key was already hidden.",
+        "uncertainty_note": null
+      },
+      {
+        "fact_id": "F2",
+        "category": "critical_action",
+        "entity": "Meera",
+        "required_detail": "Meera visibly reacts with fear.",
+        "source_evidence": "Her eyes widen in fear",
+        "comparison_status": "Supported",
+        "applicability_reason": "The close-up shows her frightened reaction.",
+        "uncertainty_note": null
+      }
+    ],
+    "findings": [],
+    "summary": {
+      "overall_status": "No Significant Issues Detected",
+      "extracted_fact_count": 2,
+      "relevant_fact_count": 1,
+      "verified_fact_count": 1,
+      "critical_issue_count": 0,
+      "warning_count": 0,
+      "finding_count": 0
+    },
+    "suggested_corrected_prompt": "Tight close-up of Meera's frightened face, with soft warm lighting."
+  },
+  "review_decisions": [],
+  "reviewer_edited_prompt": "Tight close-up of Meera's frightened face, with soft warm lighting."
+}

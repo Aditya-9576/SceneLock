@@ -1,0 +1,71 @@
+{
+  "important": "These are actual keyword-BASELINE mistakes, not Gemini mistakes. No Gemini API key was available.",
+  "observed_baseline_errors": [
+    {
+      "case_id": "T06",
+      "actual_predictor": "keyword_overlap_v1_not_an_LLM",
+      "observed_error": "false_positive",
+      "screenplay_text": "Nila tucks a brass key into her coat pocket and then turns toward the sound of shattered glass, visibly frightened.",
+      "video_prompt": "Tight close-up of Nila's frightened face as she turns toward the sound of breaking glass.",
+      "shot_type": "Character close-up",
+      "shot_intent": "Only show Nila's frightened reaction after she has already hidden the key; the key-hiding action is outside this shot.",
+      "observed_prediction": {
+        "has_confirmed_issue": true,
+        "lexical_recall": 0.4167
+      },
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_fact_statuses": [
+        "Not Applicable",
+        "Supported"
+      ],
+      "root_cause": "The frozen keyword baseline reads screenplay/prompt tokens but ignores shot_type and shot_intent, demanding an earlier off-frame key-hiding action during a reaction close-up.",
+      "correction": "Added explicit before/after shot-scope counterchecks to Gemini instructions v3; baseline v1 is intentionally unchanged as a reproducible yardstick.",
+      "retest": {
+        "baseline": "Same mistake reproducibly persists (frozen baseline).",
+        "new_Gemini_instructions": "Static instruction tests passed; real model retest blocked by missing key."
+      }
+    },
+    {
+      "case_id": "T14",
+      "actual_predictor": "keyword_overlap_v1_not_an_LLM",
+      "observed_error": "false_negative",
+      "screenplay_text": "Ritika hands the antidote vial to Dr. Karan, who is too weak to reach for it.",
+      "video_prompt": "Dr. Karan hands the antidote vial to Ritika as she reaches out to receive it.",
+      "shot_type": "Character interaction",
+      "shot_intent": "Show Ritika delivering the antidote to the weakened doctor.",
+      "observed_prediction": {
+        "has_confirmed_issue": false,
+        "lexical_recall": 0.6667
+      },
+      "expected_overall_status": "Review Required",
+      "expected_fact_statuses": [
+        "Contradicted"
+      ],
+      "root_cause": "Enough keywords overlap although the giver and recipient of the antidote are reversed; lexical recall cannot represent role assignments.",
+      "correction": "Added explicit actor/receiver direction countercheck to Gemini instructions v3; baseline v1 remains frozen.",
+      "retest": {
+        "baseline": "Same mistake reproducibly persists (frozen baseline).",
+        "new_Gemini_instructions": "Static instruction tests passed; real model retest blocked by missing key."
+      }
+    }
+  ],
+  "actual_implementation_regressions_fixed": [
+    {
+      "id": "CODE-01",
+      "original_failure": "Zero-width Unicode-only input and evidence were accepted as visible text.",
+      "root_cause": "str.strip() does not remove U+200B/U+200C/U+200D.",
+      "correction": "Schema and quote validator now require visible Unicode characters.",
+      "retest": "test_phase9_adversarial.py: invisible input, custom intent and evidence checks pass."
+    },
+    {
+      "id": "CODE-02",
+      "original_failure": "Raw responses from rejected or incomplete provider output were unavailable to the evaluator.",
+      "root_cause": "Adapter previously validated/rejected before a raw-response observer could receive the unmodified text.",
+      "correction": "Optional evaluation observer captures provider text before status and evidence checks; exclusive raw archive uses exact T01_response.json names.",
+      "retest": "test_gemini_integration.py: both malformed/evidence-invalid and incomplete responses were captured and the reports rejected."
+    }
+  ],
+  "model_mistake_observed": false,
+  "model_fix_retest_completed": false,
+  "live_model_blocker": "No configured Gemini API key; cannot honestly identify or retest an actual Gemini mistake."
+}

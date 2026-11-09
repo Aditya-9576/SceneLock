@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "inputs": {
+    "screenplay_text": "रीमा कहती है, \"रुको, अभी!\"\nफिर वह लाल दुपट्टा पहनती है।",
+    "video_prompt": "रीमा कहती है, \"रुको, अभी!\"\nShe wears a blue dupatta, soft light.",
+    "shot_type": "Full dramatic beat",
+    "shot_intent": "Show Reema in her scripted dupatta.",
+    "episode_id": "EP-यू1",
+    "scene_id": "SC1",
+    "shot_id": "SH1"
+  },
+  "analysis": {
+    "metadata": {
+      "schema_version": "1.0",
+      "analysis_id": "ff009dd5-fc2f-4889-866c-62a4712f6c93",
+      "created_at_utc": "2026-11-08T09:19:05.474319Z",
+      "episode_id": "EP-यू1",
+      "scene_id": "SC1",
+      "shot_id": "SH1",
+      "shot_type": "Full dramatic beat",
+      "shot_intent": "Show Reema in her scripted dupatta.",
+      "analysis_engine": "synthetic_fixture",
+      "provider": "human_authored_fixture",
+      "model": "not_a_gemini_result",
+      "duration_ms": 0
+    },
+    "facts": [
+      {
+        "fact_id": "F1",
+        "category": "explicit_visual_attribute",
+        "entity": "रीमा",
+        "required_detail": "रीमा wears the explicitly scripted red dupatta.",
+        "source_evidence": "लाल दुपट्टा",
+        "comparison_status": "Contradicted",
+        "applicability_reason": "The specified shot shows her visible costume.",
+        "uncertainty_note": null
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "ISSUE1",
+        "related_fact_id": "F1",
+        "category": "explicit_visual_attribute",
+        "comparison_status": "Contradicted",
+        "severity": "Medium",
+        "screenplay_evidence": "लाल दुपट्टा",
+        "prompt_evidence": "blue dupatta",
+        "explanation": "पोशाक बदल गई: red, scripted dupatta versus blue; keep the dialogue, including \"रुको, अभी!\".\nReview the costume before generation.",
+        "suggested_fix": "Change blue to red, preserve 'रुको, अभी!' and the original light.",
+        "uncertainty_note": null
+      }
+    ],
+    "summary": {
+      "overall_status": "Review Required",
+      "extracted_fact_count": 1,
+      "relevant_fact_count": 1,
+      "verified_fact_count": 0,
+      "critical_issue_count": 0,
+      "warning_count": 1,
+      "finding_count": 1
+    },
+    "suggested_corrected_prompt": "रीमा कहती है, \"रुको, अभी!\"\nShe wears a red dupatta, soft light."
+  },
+  "review_decisions": [
+    {
+      "finding_id": "ISSUE1",
+      "decision": "Needs further review"
+    }
+  ],
+  "reviewer_edited_prompt": "रीमा कहती है, \"रुको, अभी!\"\nShe wears a red dupatta, soft light; note: re-check costume, framing."
+}

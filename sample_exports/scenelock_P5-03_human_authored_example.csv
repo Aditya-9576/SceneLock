@@ -1,0 +1,2 @@
+﻿"analysis_id","episode_id","scene_id","shot_id","finding_id","related_fact_id","category","status","comparison_status","severity","screenplay_evidence","prompt_evidence","explanation","suggested_fix","uncertainty_note","human_decision"
+"d4523f62-67d3-4834-b2d8-217d0baf505d","","","","ISSUE1","F1","critical_action","Contradicted","Contradicted","High","Arjun offers the red envelope to Meera","Meera offers the red envelope to Arjun","The giver and recipient have been reversed.","Make Arjun the giver and Meera the recipient.","","Accept suggestion"

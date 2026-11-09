@@ -1,0 +1,405 @@
+{
+  "dataset_id": "scenelock-original-eval-v1",
+  "label_version": "1.0",
+  "label_authoring": "Explicitly authored expected outcomes, written before any LLM evaluation. Not model predictions and not independently human-adjudicated.",
+  "policy": {
+    "allowed_categories": ["critical_action", "important_prop", "character_identity_position", "explicit_visual_attribute"],
+    "allowed_statuses": ["Supported", "Contradicted", "Missing", "Ambiguous", "Not Applicable"],
+    "allowed_severities": ["High", "Medium", "Low"],
+    "issue_type_is_null_for": ["Supported", "Not Applicable"],
+    "severity_is_null_for": ["Supported", "Not Applicable"],
+    "notes": "An explicit contradiction must identify the same resolved character/prop; missing content is not a contradiction; shot intent controls applicability. Only real findings receive severity. A case with only Ambiguous relevant facts has Insufficient Context."
+  },
+  "labels": [
+    {
+      "test_id": "T01",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T01-F01",
+          "category": "explicit_visual_attribute",
+          "entity": "Tara",
+          "required_detail": "Tara wears a red dress, used as a recognition signal.",
+          "source_evidence": "wearing a red dress",
+          "expected_status": "Contradicted",
+          "issue_type": "costume_colour_mismatch",
+          "expected_severity": "High",
+          "prompt_evidence": "in a blue dress",
+          "explanation": "The same named character is shown in blue rather than the explicitly required red dress; the red dress also identifies her to her brother. This changes a story-relevant visual clue."
+        },
+        {
+          "fact_id": "T01-F02",
+          "category": "character_identity_position",
+          "entity": "Tara",
+          "required_detail": "Tara waits beside the station ticket kiosk.",
+          "source_evidence": "Tara waits beside the station ticket kiosk",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Tara waits beside the station ticket kiosk",
+          "explanation": "The actor and waiting location are explicitly preserved."
+        }
+      ]
+    },
+    {
+      "test_id": "T02",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T02-F01",
+          "category": "explicit_visual_attribute",
+          "entity": "Ishan",
+          "required_detail": "Ishan wears a black jacket.",
+          "source_evidence": "wearing a black jacket",
+          "expected_status": "Contradicted",
+          "issue_type": "costume_colour_mismatch",
+          "expected_severity": "Medium",
+          "prompt_evidence": "in a white jacket",
+          "explanation": "The prompt explicitly specifies a different jacket colour for the same named character. It is a clear mismatch, but no plot-critical consequence is established."
+        },
+        {
+          "fact_id": "T02-F02",
+          "category": "critical_action",
+          "entity": "Ishan",
+          "required_detail": "Ishan enters the abandoned warehouse.",
+          "source_evidence": "Ishan walks into the abandoned warehouse",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Ishan enters the abandoned warehouse",
+          "explanation": "Walking into and entering the warehouse describe the same visible action."
+        }
+      ]
+    },
+    {
+      "test_id": "T03",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T03-F01",
+          "category": "important_prop",
+          "entity": "Leena",
+          "required_detail": "Leena clutches a brown handbag against her chest.",
+          "source_evidence": "clutching a brown handbag close to her chest",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "holding her brown purse tightly against her chest",
+          "explanation": "Handbag and purse are equivalent terms here, and the colour and body placement agree."
+        }
+      ]
+    },
+    {
+      "test_id": "T04",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T04-F01",
+          "category": "critical_action",
+          "entity": "Zoya",
+          "required_detail": "Zoya puts a small key inside her canvas tote.",
+          "source_evidence": "places a small key inside her canvas tote",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "slips a small key into her canvas tote",
+          "explanation": "Placing a key inside and slipping a key into the tote are semantically equivalent actions."
+        },
+        {
+          "fact_id": "T04-F02",
+          "category": "critical_action",
+          "entity": "Zoya",
+          "required_detail": "Zoya leaves the cafe after putting away the key.",
+          "source_evidence": "then leaves the cafe",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "then walks out of the cafe",
+          "explanation": "The cafe exit and its ordering after the key action are preserved."
+        }
+      ]
+    },
+    {
+      "test_id": "T05",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T05-F01",
+          "category": "critical_action",
+          "entity": "Sameer",
+          "required_detail": "Sameer burns the signed confession letter in a tray and destroys the evidence.",
+          "source_evidence": "then burns it in a metal tray, destroying the only evidence",
+          "expected_status": "Missing",
+          "issue_type": "omitted_decisive_action",
+          "expected_severity": "High",
+          "prompt_evidence": null,
+          "explanation": "The intended action shot must show destruction of the evidence, but the prompt describes only reading the letter beside a tray. An omitted action is not an explicit contradiction."
+        },
+        {
+          "fact_id": "T05-F02",
+          "category": "critical_action",
+          "entity": "Sameer",
+          "required_detail": "Sameer reads the signed confession letter.",
+          "source_evidence": "Sameer reads the signed confession letter",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Sameer reads a signed confession letter",
+          "explanation": "The initial reading action is represented correctly; it does not satisfy the later burning action."
+        }
+      ]
+    },
+    {
+      "test_id": "T06",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T06-F01",
+          "category": "critical_action",
+          "entity": "Nila",
+          "required_detail": "Nila hides a brass key in her coat pocket.",
+          "source_evidence": "Nila tucks a brass key into her coat pocket",
+          "expected_status": "Not Applicable",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": null,
+          "explanation": "Shot intent explicitly starts after the key is hidden and shows only Nila's reaction. The prior action is not required on screen."
+        },
+        {
+          "fact_id": "T06-F02",
+          "category": "critical_action",
+          "entity": "Nila",
+          "required_detail": "Nila turns toward breaking glass with a frightened expression.",
+          "source_evidence": "then turns toward the sound of shattered glass, visibly frightened",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Nila's frightened face as she turns toward the sound of breaking glass",
+          "explanation": "The facial reaction and turn toward the sound match; shattered glass and breaking glass refer to the same event."
+        }
+      ]
+    },
+    {
+      "test_id": "T07",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T07-F01",
+          "category": "character_identity_position",
+          "entity": "courier",
+          "required_detail": "A courier approaches a yellow bungalow at dawn.",
+          "source_evidence": "At dawn, a courier approaches a yellow bungalow",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "at dawn: a courier approaches a yellow bungalow",
+          "explanation": "The establishing-shot subject, place, and time match the screenplay."
+        },
+        {
+          "fact_id": "T07-F02",
+          "category": "important_prop",
+          "entity": "cracked wristwatch",
+          "required_detail": "A cracked wristwatch lies inside a closed drawer in the upstairs study.",
+          "source_evidence": "a cracked wristwatch lies in a closed drawer",
+          "expected_status": "Not Applicable",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": null,
+          "explanation": "This shot remains outside the house; an object hidden inside an upstairs drawer is not expected to appear."
+        }
+      ]
+    },
+    {
+      "test_id": "T08",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T08-F01",
+          "category": "critical_action",
+          "entity": "Aarav",
+          "required_detail": "Aarav moves a glass vase from the floor onto the wall shelf.",
+          "source_evidence": "Aarav lifts a glass vase from the floor and sets it on the wall shelf",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Aarav picks up the glass vase off the floor, places it on the wall shelf",
+          "explanation": "Both the object transfer and destination match under synonymous verbs."
+        },
+        {
+          "fact_id": "T08-F02",
+          "category": "critical_action",
+          "entity": "Aarav",
+          "required_detail": "Aarav steps backward to inspect the vase.",
+          "source_evidence": "He steps back to inspect it",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "steps back to inspect it",
+          "explanation": "The follow-up inspection action is explicitly present in the prompt."
+        }
+      ]
+    },
+    {
+      "test_id": "T09",
+      "expected_overall_status": "Insufficient Context",
+      "expected_facts": [
+        {
+          "fact_id": "T09-F01",
+          "category": "character_identity_position",
+          "entity": "Rohan and Priya",
+          "required_detail": "Rohan watches Priya from the kitchen doorway as Priya opens a sealed box.",
+          "source_evidence": "Rohan watches Priya from the kitchen doorway while she opens a sealed box",
+          "expected_status": "Ambiguous",
+          "issue_type": "unresolved_character_identity",
+          "expected_severity": "Medium",
+          "prompt_evidence": "A man watches a woman from a doorway as she opens a sealed box",
+          "explanation": "The described action is compatible, but nothing identifies the unnamed man and woman as Rohan and Priya. Do not claim a definite identity match or contradiction."
+        }
+      ]
+    },
+    {
+      "test_id": "T10",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T10-F01",
+          "category": "critical_action",
+          "entity": "Sia",
+          "required_detail": "Sia walks alone across an empty railway platform at night.",
+          "source_evidence": "Sia walks alone across an empty railway platform at night",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Sia walks alone across an empty railway platform at night",
+          "explanation": "The required scene is intact. Extra blue cinematic lighting is a permissible artistic addition."
+        }
+      ]
+    },
+    {
+      "test_id": "T11",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T11-F01",
+          "category": "character_identity_position",
+          "entity": "Imran",
+          "required_detail": "Imran stands in the doorway and blocks the only exit.",
+          "source_evidence": "Imran stands in the doorway, blocking the only exit",
+          "expected_status": "Contradicted",
+          "issue_type": "character_position_conflict",
+          "expected_severity": "High",
+          "prompt_evidence": "Imran sits on the sofa",
+          "explanation": "The same named character is seated away from the doorway rather than physically blocking the exit, altering the scene's immediate threat."
+        },
+        {
+          "fact_id": "T11-F02",
+          "category": "critical_action",
+          "entity": "Noor",
+          "required_detail": "Noor searches the drawer.",
+          "source_evidence": "Noor searches the drawer",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Noor searches the drawer",
+          "explanation": "Noor's search action is correctly represented and should not be flagged merely because Imran's position is wrong."
+        }
+      ]
+    },
+    {
+      "test_id": "T12",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T12-F01",
+          "category": "important_prop",
+          "entity": "ransom envelope",
+          "required_detail": "The distinctive sealed ransom envelope is purple.",
+          "source_evidence": "a sealed purple envelope",
+          "expected_status": "Contradicted",
+          "issue_type": "plot_critical_prop_colour_mismatch",
+          "expected_severity": "High",
+          "prompt_evidence": "a sealed orange envelope",
+          "explanation": "The prompt changes the explicitly story-identifying purple envelope to orange in a prop close-up, losing the intended visual clue."
+        }
+      ]
+    },
+    {
+      "test_id": "T13",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T13-F01",
+          "category": "critical_action",
+          "entity": "Anaya",
+          "required_detail": "Anaya locks the drawer before giving Ved the key.",
+          "source_evidence": "Anaya locks the drawer before handing the key to Ved",
+          "expected_status": "Contradicted",
+          "issue_type": "reversed_action_order",
+          "expected_severity": "High",
+          "prompt_evidence": "Anaya hands the key to Ved and then locks the drawer",
+          "explanation": "Both actions appear, but the explicitly required order is reversed. The handoff must occur after locking, not before."
+        }
+      ]
+    },
+    {
+      "test_id": "T14",
+      "expected_overall_status": "Review Required",
+      "expected_facts": [
+        {
+          "fact_id": "T14-F01",
+          "category": "character_identity_position",
+          "entity": "Ritika and Dr. Karan",
+          "required_detail": "Ritika gives the antidote vial to Dr. Karan, the recipient.",
+          "source_evidence": "Ritika hands the antidote vial to Dr. Karan",
+          "expected_status": "Contradicted",
+          "issue_type": "wrong_action_assignment",
+          "expected_severity": "High",
+          "prompt_evidence": "Dr. Karan hands the antidote vial to Ritika",
+          "explanation": "The prompt reverses named giver and receiver; this changes which character provides the antidote."
+        }
+      ]
+    },
+    {
+      "test_id": "T15",
+      "expected_overall_status": "No Significant Issues Detected",
+      "expected_facts": [
+        {
+          "fact_id": "T15-F01",
+          "category": "explicit_visual_attribute",
+          "entity": "Reema / रीमा",
+          "required_detail": "Reema wears a red dupatta.",
+          "source_evidence": "रीमा लाल dupatta पहनकर",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "wearing a red dupatta",
+          "explanation": "The Hindi colour लाल means red; the Hindi-name-to-English transliteration and code-switched dupatta describe the same costume detail."
+        },
+        {
+          "fact_id": "T15-F02",
+          "category": "critical_action",
+          "entity": "Reema / रीमा",
+          "required_detail": "Reema opens the door.",
+          "source_evidence": "दरवाज़ा खोलती है",
+          "expected_status": "Supported",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": "Reema opens the door",
+          "explanation": "The door-opening action is semantically preserved across Hindi and English wording."
+        },
+        {
+          "fact_id": "T15-F03",
+          "category": "critical_action",
+          "entity": "Reema / रीमा",
+          "required_detail": "Reema picks up a phone from the table afterward.",
+          "source_evidence": "इसके बाद वह मेज़ से phone उठाती है",
+          "expected_status": "Not Applicable",
+          "issue_type": null,
+          "expected_severity": null,
+          "prompt_evidence": null,
+          "explanation": "The shot intent explicitly excludes the later phone pickup; it belongs to the next shot and must not be treated as missing."
+        }
+      ]
+    }
+  ]
+}

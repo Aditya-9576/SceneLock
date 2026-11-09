@@ -1,0 +1,43 @@
+{
+  "id": "P8-UNICODE",
+  "scenario": "Hindi-English costume contradiction; punctuation, quotes and line breaks survive exports",
+  "fixture_source": "Human-authored expected label. This is not a Gemini prediction.",
+  "input": {
+    "screenplay_text": "रीमा कहती है, \"रुको, अभी!\"\nफिर वह लाल दुपट्टा पहनती है।",
+    "video_prompt": "रीमा कहती है, \"रुको, अभी!\"\nShe wears a blue dupatta, soft light.",
+    "shot_type": "Full dramatic beat",
+    "shot_intent": "Show Reema in her scripted dupatta.",
+    "episode_id": "EP-यू1",
+    "scene_id": "SC1",
+    "shot_id": "SH1"
+  },
+  "expected": {
+    "facts": [
+      {
+        "fact_id": "F1",
+        "category": "explicit_visual_attribute",
+        "entity": "रीमा",
+        "required_detail": "रीमा wears the explicitly scripted red dupatta.",
+        "source_evidence": "लाल दुपट्टा",
+        "comparison_status": "Contradicted",
+        "applicability_reason": "The specified shot shows her visible costume.",
+        "uncertainty_note": null
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "ISSUE1",
+        "related_fact_id": "F1",
+        "category": "explicit_visual_attribute",
+        "comparison_status": "Contradicted",
+        "severity": "Medium",
+        "screenplay_evidence": "लाल दुपट्टा",
+        "prompt_evidence": "blue dupatta",
+        "explanation": "पोशाक बदल गई: red, scripted dupatta versus blue; keep the dialogue, including \"रुको, अभी!\".\nReview the costume before generation.",
+        "suggested_fix": "Change blue to red, preserve 'रुको, अभी!' and the original light.",
+        "uncertainty_note": null
+      }
+    ],
+    "suggested_corrected_prompt": "रीमा कहती है, \"रुको, अभी!\"\nShe wears a red dupatta, soft light."
+  }
+}

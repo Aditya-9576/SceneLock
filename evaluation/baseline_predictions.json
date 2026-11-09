@@ -1,0 +1,326 @@
+{
+  "dataset_id": "scenelock-original-eval-v1",
+  "baseline": "keyword_overlap_v1",
+  "not_an_llm_result": true,
+  "predictions": [
+    {
+      "test_id": "T01",
+      "matched_keyword_count": 6,
+      "source_keyword_count": 13,
+      "lexical_recall": 0.4615,
+      "matched_keywords": [
+        "dress",
+        "kiosk",
+        "station",
+        "tara",
+        "ticket",
+        "waits"
+      ],
+      "unmatched_screenplay_keywords": [
+        "agreed",
+        "brother",
+        "crowd",
+        "recognize",
+        "red",
+        "signal",
+        "wearing"
+      ],
+      "predicted_has_confirmed_issue": true,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T02",
+      "matched_keyword_count": 4,
+      "source_keyword_count": 7,
+      "lexical_recall": 0.5714,
+      "matched_keywords": [
+        "abandoned",
+        "ishan",
+        "jacket",
+        "warehouse"
+      ],
+      "unmatched_screenplay_keywords": [
+        "black",
+        "walks",
+        "wearing"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T03",
+      "matched_keyword_count": 5,
+      "source_keyword_count": 9,
+      "lexical_recall": 0.5556,
+      "matched_keywords": [
+        "brown",
+        "chest",
+        "clinic",
+        "leena",
+        "outside"
+      ],
+      "unmatched_screenplay_keywords": [
+        "close",
+        "clutching",
+        "handbag",
+        "waits"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T04",
+      "matched_keyword_count": 6,
+      "source_keyword_count": 8,
+      "lexical_recall": 0.75,
+      "matched_keywords": [
+        "cafe",
+        "canvas",
+        "key",
+        "small",
+        "tote",
+        "zoya"
+      ],
+      "unmatched_screenplay_keywords": [
+        "leaves",
+        "places"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T05",
+      "matched_keyword_count": 7,
+      "source_keyword_count": 10,
+      "lexical_recall": 0.7,
+      "matched_keywords": [
+        "confession",
+        "letter",
+        "metal",
+        "reads",
+        "sameer",
+        "signed",
+        "tray"
+      ],
+      "unmatched_screenplay_keywords": [
+        "burns",
+        "destroying",
+        "evidence"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T06",
+      "matched_keyword_count": 5,
+      "source_keyword_count": 12,
+      "lexical_recall": 0.4167,
+      "matched_keywords": [
+        "frightened",
+        "glass",
+        "nila",
+        "sound",
+        "turns"
+      ],
+      "unmatched_screenplay_keywords": [
+        "brass",
+        "coat",
+        "key",
+        "pocket",
+        "shattered",
+        "tucks",
+        "visibly"
+      ],
+      "predicted_has_confirmed_issue": true,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T07",
+      "matched_keyword_count": 5,
+      "source_keyword_count": 12,
+      "lexical_recall": 0.4167,
+      "matched_keywords": [
+        "approaches",
+        "bungalow",
+        "courier",
+        "dawn",
+        "yellow"
+      ],
+      "unmatched_screenplay_keywords": [
+        "closed",
+        "cracked",
+        "drawer",
+        "lies",
+        "study",
+        "upstairs",
+        "wristwatch"
+      ],
+      "predicted_has_confirmed_issue": true,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T08",
+      "matched_keyword_count": 9,
+      "source_keyword_count": 11,
+      "lexical_recall": 0.8182,
+      "matched_keywords": [
+        "aarav",
+        "back",
+        "floor",
+        "glass",
+        "inspect",
+        "shelf",
+        "steps",
+        "vase",
+        "wall"
+      ],
+      "unmatched_screenplay_keywords": [
+        "lifts",
+        "sets"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T09",
+      "matched_keyword_count": 5,
+      "source_keyword_count": 8,
+      "lexical_recall": 0.625,
+      "matched_keywords": [
+        "box",
+        "doorway",
+        "opens",
+        "sealed",
+        "watches"
+      ],
+      "unmatched_screenplay_keywords": [
+        "kitchen",
+        "priya",
+        "rohan"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T10",
+      "matched_keyword_count": 8,
+      "source_keyword_count": 8,
+      "lexical_recall": 1.0,
+      "matched_keywords": [
+        "across",
+        "alone",
+        "empty",
+        "night",
+        "platform",
+        "railway",
+        "sia",
+        "walks"
+      ],
+      "unmatched_screenplay_keywords": [],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T11",
+      "matched_keyword_count": 4,
+      "source_keyword_count": 8,
+      "lexical_recall": 0.5,
+      "matched_keywords": [
+        "drawer",
+        "imran",
+        "noor",
+        "searches"
+      ],
+      "unmatched_screenplay_keywords": [
+        "blocking",
+        "doorway",
+        "exit",
+        "stands"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T12",
+      "matched_keyword_count": 4,
+      "source_keyword_count": 11,
+      "lexical_recall": 0.3636,
+      "matched_keywords": [
+        "envelope",
+        "maya",
+        "sealed",
+        "table"
+      ],
+      "unmatched_screenplay_keywords": [
+        "colour",
+        "demand",
+        "lays",
+        "marks",
+        "purple",
+        "ransom",
+        "unusual"
+      ],
+      "predicted_has_confirmed_issue": true,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T13",
+      "matched_keyword_count": 5,
+      "source_keyword_count": 6,
+      "lexical_recall": 0.8333,
+      "matched_keywords": [
+        "anaya",
+        "drawer",
+        "key",
+        "locks",
+        "ved"
+      ],
+      "unmatched_screenplay_keywords": [
+        "handing"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T14",
+      "matched_keyword_count": 6,
+      "source_keyword_count": 9,
+      "lexical_recall": 0.6667,
+      "matched_keywords": [
+        "antidote",
+        "dr",
+        "hands",
+        "karan",
+        "ritika",
+        "vial"
+      ],
+      "unmatched_screenplay_keywords": [
+        "reach",
+        "too",
+        "weak"
+      ],
+      "predicted_has_confirmed_issue": false,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    },
+    {
+      "test_id": "T15",
+      "matched_keyword_count": 1,
+      "source_keyword_count": 8,
+      "lexical_recall": 0.125,
+      "matched_keywords": [
+        "dupatta"
+      ],
+      "unmatched_screenplay_keywords": [
+        "phone",
+        "इसक",
+        "उठ",
+        "दरव",
+        "पहनकर",
+        "लत",
+        "वह"
+      ],
+      "predicted_has_confirmed_issue": true,
+      "decision_rule": "Flag potential issue if raw token recall < 0.50"
+    }
+  ]
+}

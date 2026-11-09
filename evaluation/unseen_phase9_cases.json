@@ -1,0 +1,102 @@
+{
+  "dataset_id": "scenelock-phase9-unseen-v1",
+  "provenance": "Three newly authored screenplay–video prompt pairs, held separate from the original T01–T15 labels.",
+  "important_note": "Manual expected labels and fixture replies. They are NOT Gemini predictions or independently adjudicated model accuracy measurements.",
+  "cases": [
+    {
+      "test_id": "U01",
+      "scenario": "Unseen paper-boat action with equivalent wording",
+      "input": {
+        "screenplay_text": "Farah folds a paper boat and floats it in a rain puddle.",
+        "video_prompt": "Farah makes a small paper boat and sets it afloat in a rain puddle, overcast light.",
+        "shot_type": "Action shot",
+        "shot_intent": "Show Farah launching her paper boat into the puddle.",
+        "episode_id": "EVAL", "scene_id": "U01", "shot_id": "S01"
+      },
+      "expected": {
+        "facts": [
+          {
+            "fact_id": "F1", "category": "critical_action", "entity": "Farah",
+            "required_detail": "Farah makes and floats a paper boat in a puddle.",
+            "source_evidence": "Farah folds a paper boat and floats it in a rain puddle",
+            "comparison_status": "Supported",
+            "applicability_reason": "The boat launch is exactly the action shot's subject.",
+            "uncertainty_note": null
+          }
+        ],
+        "findings": [],
+        "suggested_corrected_prompt": "Farah makes a small paper boat and sets it afloat in a rain puddle, overcast light."
+      }
+    },
+    {
+      "test_id": "U02",
+      "scenario": "Unseen steel hatch action reversed around ladder climb",
+      "input": {
+        "screenplay_text": "At the rooftop, Dev closes the steel hatch before Nisha climbs the ladder.",
+        "video_prompt": "Nisha climbs the ladder first; then Dev shuts the steel hatch, harsh noon sun.",
+        "shot_type": "Action shot",
+        "shot_intent": "Show the hatch closure before Nisha's ladder climb.",
+        "episode_id": "EVAL", "scene_id": "U02", "shot_id": "S01"
+      },
+      "expected": {
+        "facts": [
+          {
+            "fact_id": "F1", "category": "critical_action", "entity": "Dev",
+            "required_detail": "Dev closes the hatch before Nisha climbs.",
+            "source_evidence": "Dev closes the steel hatch before Nisha climbs the ladder",
+            "comparison_status": "Contradicted",
+            "applicability_reason": "Both actions and their order are required in this shot.",
+            "uncertainty_note": null
+          }
+        ],
+        "findings": [
+          {
+            "finding_id": "ISSUE1", "related_fact_id": "F1", "category": "critical_action",
+            "comparison_status": "Contradicted", "severity": "High",
+            "screenplay_evidence": "Dev closes the steel hatch before Nisha climbs the ladder",
+            "prompt_evidence": "Nisha climbs the ladder first; then Dev shuts the steel hatch",
+            "explanation": "The prompt reverses the explicit temporal order of two required actions.",
+            "suggested_fix": "Have Dev close the hatch before Nisha climbs the ladder.",
+            "uncertainty_note": null
+          }
+        ],
+        "suggested_corrected_prompt": "Dev shuts the steel hatch; then Nisha climbs the ladder, harsh noon sun."
+      }
+    },
+    {
+      "test_id": "U03",
+      "scenario": "Unseen Hindi screenplay with unnamed English character",
+      "input": {
+        "screenplay_text": "मीरा अपनी चांदी की पायल बाँधती है, फिर चौखट पर रुकती है।",
+        "video_prompt": "A woman fastens a silver anklet, then pauses at the doorway. Soft morning light.",
+        "shot_type": "Character interaction",
+        "shot_intent": "Show the character Meera herself wearing the anklet.",
+        "episode_id": "EVAL", "scene_id": "U03", "shot_id": "S01"
+      },
+      "expected": {
+        "facts": [
+          {
+            "fact_id": "F1", "category": "character_identity_position", "entity": "मीरा",
+            "required_detail": "The woman attaching the silver anklet must be Meera.",
+            "source_evidence": "मीरा अपनी चांदी की पायल बाँधती है",
+            "comparison_status": "Ambiguous",
+            "applicability_reason": "Character identity is part of the shot's intent.",
+            "uncertainty_note": "The prompt does not name the woman."
+          }
+        ],
+        "findings": [
+          {
+            "finding_id": "ISSUE1", "related_fact_id": "F1", "category": "character_identity_position",
+            "comparison_status": "Ambiguous", "severity": "Medium",
+            "screenplay_evidence": "मीरा अपनी चांदी की पायल बाँधती है",
+            "prompt_evidence": "A woman",
+            "explanation": "The action matches, but the unnamed woman's identity cannot be confirmed as Meera.",
+            "suggested_fix": "Ask whether the woman is Meera; specify her name only after confirmation.",
+            "uncertainty_note": "Character identity is unresolved."
+          }
+        ],
+        "suggested_corrected_prompt": "A woman fastens a silver anklet, then pauses at the doorway. Soft morning light."
+      }
+    }
+  ]
+}

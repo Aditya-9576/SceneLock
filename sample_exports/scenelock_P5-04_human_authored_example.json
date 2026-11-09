@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "inputs": {
+    "screenplay_text": "Meera burns the letter in the fireplace.",
+    "video_prompt": "Meera holds the letter near the fireplace, dramatic light.",
+    "shot_type": "Action shot",
+    "shot_intent": "Show the letter burning completely.",
+    "episode_id": null,
+    "scene_id": null,
+    "shot_id": null
+  },
+  "analysis": {
+    "metadata": {
+      "schema_version": "1.0",
+      "analysis_id": "6c070121-0230-4edc-8a41-b17bce0a0cfc",
+      "created_at_utc": "2026-11-08T09:19:05.473962Z",
+      "episode_id": null,
+      "scene_id": null,
+      "shot_id": null,
+      "shot_type": "Action shot",
+      "shot_intent": "Show the letter burning completely.",
+      "analysis_engine": "synthetic_fixture",
+      "provider": "human_authored_fixture",
+      "model": "not_a_gemini_result",
+      "duration_ms": 0
+    },
+    "facts": [
+      {
+        "fact_id": "F1",
+        "category": "critical_action",
+        "entity": "Meera",
+        "required_detail": "Meera burns the letter.",
+        "source_evidence": "burns the letter in the fireplace",
+        "comparison_status": "Missing",
+        "applicability_reason": "Burning is the intended action; holding it nearby is not sufficient.",
+        "uncertainty_note": null
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "ISSUE1",
+        "related_fact_id": "F1",
+        "category": "critical_action",
+        "comparison_status": "Missing",
+        "severity": "High",
+        "screenplay_evidence": "burns the letter in the fireplace",
+        "prompt_evidence": null,
+        "explanation": "The prompt never specifies that the letter burns.",
+        "suggested_fix": "Depict Meera burning the letter in the fireplace.",
+        "uncertainty_note": null
+      }
+    ],
+    "summary": {
+      "overall_status": "Review Required",
+      "extracted_fact_count": 1,
+      "relevant_fact_count": 1,
+      "verified_fact_count": 0,
+      "critical_issue_count": 1,
+      "warning_count": 0,
+      "finding_count": 1
+    },
+    "suggested_corrected_prompt": "Meera burns the letter in the fireplace, dramatic light."
+  },
+  "review_decisions": [
+    {
+      "finding_id": "ISSUE1",
+      "decision": "Dismiss / intentional creative choice"
+    }
+  ],
+  "reviewer_edited_prompt": "Meera burns the letter in the fireplace, dramatic light."
+}

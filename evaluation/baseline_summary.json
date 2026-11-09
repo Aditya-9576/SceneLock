@@ -1,0 +1,58 @@
+{
+  "evaluation_type": "actual_deterministic_keyword_baseline_only",
+  "not_an_llm_result": true,
+  "case_count": 15,
+  "gold_definition": "True if one or more High/Medium screenplay facts are Contradicted or Missing; Ambiguous by itself is not a confirmed issue.",
+  "method": "Set overlap of unique lowercased source keywords found verbatim in the prompt; no synonym or scope reasoning.",
+  "keyword_recall_threshold": 0.5,
+  "confusion": {
+    "TP": 2,
+    "FP": 3,
+    "TN": 5,
+    "FN": 5
+  },
+  "precision": 0.4,
+  "recall": 0.2857,
+  "errors": [
+    {
+      "test_id": "T02",
+      "error": "false_negative"
+    },
+    {
+      "test_id": "T05",
+      "error": "false_negative"
+    },
+    {
+      "test_id": "T06",
+      "error": "false_positive"
+    },
+    {
+      "test_id": "T07",
+      "error": "false_positive"
+    },
+    {
+      "test_id": "T11",
+      "error": "false_negative"
+    },
+    {
+      "test_id": "T13",
+      "error": "false_negative"
+    },
+    {
+      "test_id": "T14",
+      "error": "false_negative"
+    },
+    {
+      "test_id": "T15",
+      "error": "false_positive"
+    }
+  ],
+  "limitations": [
+    "Binary case-level issue flag only; cannot detect exact finding type or severity.",
+    "Cannot distinguish contradiction from a missing detail.",
+    "Does not use shot type or shot intent, so it may flag valid close-ups.",
+    "Misses wrong colors/roles if enough other exact tokens overlap.",
+    "Treats synonyms as different keywords; Hindi-English transliteration is unsupported.",
+    "Threshold is fixed in advance and was not optimized on this dataset."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "inputs": {
+    "screenplay_text": "Arjun offers the red envelope to Meera.",
+    "video_prompt": "Meera offers the red envelope to Arjun.",
+    "shot_type": "Action shot",
+    "shot_intent": "Show the handover of the red envelope.",
+    "episode_id": null,
+    "scene_id": null,
+    "shot_id": null
+  },
+  "analysis": {
+    "metadata": {
+      "schema_version": "1.0",
+      "analysis_id": "d4523f62-67d3-4834-b2d8-217d0baf505d",
+      "created_at_utc": "2026-11-08T09:19:05.473401Z",
+      "episode_id": null,
+      "scene_id": null,
+      "shot_id": null,
+      "shot_type": "Action shot",
+      "shot_intent": "Show the handover of the red envelope.",
+      "analysis_engine": "synthetic_fixture",
+      "provider": "human_authored_fixture",
+      "model": "not_a_gemini_result",
+      "duration_ms": 0
+    },
+    "facts": [
+      {
+        "fact_id": "F1",
+        "category": "critical_action",
+        "entity": "Arjun",
+        "required_detail": "Arjun gives the envelope to Meera, not the reverse.",
+        "source_evidence": "Arjun offers the red envelope to Meera",
+        "comparison_status": "Contradicted",
+        "applicability_reason": "The reversal changes the intended action shot.",
+        "uncertainty_note": null
+      }
+    ],
+    "findings": [
+      {
+        "finding_id": "ISSUE1",
+        "related_fact_id": "F1",
+        "category": "critical_action",
+        "comparison_status": "Contradicted",
+        "severity": "High",
+        "screenplay_evidence": "Arjun offers the red envelope to Meera",
+        "prompt_evidence": "Meera offers the red envelope to Arjun",
+        "explanation": "The giver and recipient have been reversed.",
+        "suggested_fix": "Make Arjun the giver and Meera the recipient.",
+        "uncertainty_note": null
+      }
+    ],
+    "summary": {
+      "overall_status": "Review Required",
+      "extracted_fact_count": 1,
+      "relevant_fact_count": 1,
+      "verified_fact_count": 0,
+      "critical_issue_count": 1,
+      "warning_count": 0,
+      "finding_count": 1
+    },
+    "suggested_corrected_prompt": "Arjun offers the red envelope to Meera."
+  },
+  "review_decisions": [
+    {
+      "finding_id": "ISSUE1",
+      "decision": "Accept suggestion"
+    }
+  ],
+  "reviewer_edited_prompt": "Arjun offers the red envelope to Meera. Camera pans slightly."
+}

@@ -1,0 +1,7 @@
+# Phase 10 production dependencies (verified locally with Python 3.12).
+# Exact versions avoid surprise API changes during a public demo.
+streamlit==1.67.0
+pydantic==2.14.3
+google-genai==2.34.0
+# Supports SDK networking, including SOCKS proxies where needed.
+httpx[socks]==0.28.1

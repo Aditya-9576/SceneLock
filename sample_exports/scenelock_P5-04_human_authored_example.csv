@@ -1,0 +1,2 @@
+﻿"analysis_id","episode_id","scene_id","shot_id","finding_id","related_fact_id","category","status","comparison_status","severity","screenplay_evidence","prompt_evidence","explanation","suggested_fix","uncertainty_note","human_decision"
+"6c070121-0230-4edc-8a41-b17bce0a0cfc","","","","ISSUE1","F1","critical_action","Missing","Missing","High","burns the letter in the fireplace","","The prompt never specifies that the letter burns.","Depict Meera burning the letter in the fireplace.","","Dismiss / intentional creative choice"

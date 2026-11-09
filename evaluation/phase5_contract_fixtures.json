@@ -1,0 +1,60 @@
+{
+  "dataset_id": "scenelock-phase5-contract-fixtures-v1",
+  "label_source": "Human-authored expectation fixtures for pipeline tests; these are NOT Gemini predictions or LLM accuracy results.",
+  "cases": [
+    {
+      "id": "P5-01", "scenario": "Meera/Arjun reaction close-up; preceding key hiding is irrelevant",
+      "input": {"screenplay_text": "Meera secretly hides the key before turning toward Arjun. Her eyes widen in fear.", "video_prompt": "Tight close-up of Meera's frightened face, with soft warm lighting.", "shot_type": "Character close-up", "shot_intent": "Only Meera's reaction after she has hidden the key."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "critical_action", "entity": "Meera", "required_detail": "Meera previously hid the key.", "source_evidence": "Meera secretly hides the key", "comparison_status": "Not Applicable", "applicability_reason": "The specified shot occurs after the key was already hidden.", "uncertainty_note": null}, {"fact_id": "F2", "category": "critical_action", "entity": "Meera", "required_detail": "Meera visibly reacts with fear.", "source_evidence": "Her eyes widen in fear", "comparison_status": "Supported", "applicability_reason": "The close-up shows her frightened reaction.", "uncertainty_note": null}], "findings": [], "suggested_corrected_prompt": "Tight close-up of Meera's frightened face, with soft warm lighting."},
+      "expected_overall_status": "No Significant Issues Detected"
+    },
+    {
+      "id": "P5-02", "scenario": "Handbag/purse synonym with compatible cinematic lighting",
+      "input": {"screenplay_text": "Meera slips a brass key inside her handbag.", "video_prompt": "Meera places a brass key into her purse, moody side light.", "shot_type": "Action shot", "shot_intent": "Show Meera putting away the key."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "important_prop", "entity": "Meera", "required_detail": "The brass key goes into Meera's handbag.", "source_evidence": "slips a brass key inside her handbag", "comparison_status": "Supported", "applicability_reason": "The shot shows the key being stowed.", "uncertainty_note": null}], "findings": [], "suggested_corrected_prompt": "Meera places a brass key into her purse, moody side light."},
+      "expected_overall_status": "No Significant Issues Detected"
+    },
+    {
+      "id": "P5-03", "scenario": "Arjun/Meera reversed envelope handover",
+      "input": {"screenplay_text": "Arjun offers the red envelope to Meera.", "video_prompt": "Meera offers the red envelope to Arjun.", "shot_type": "Action shot", "shot_intent": "Show the handover of the red envelope."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "critical_action", "entity": "Arjun", "required_detail": "Arjun gives the envelope to Meera, not the reverse.", "source_evidence": "Arjun offers the red envelope to Meera", "comparison_status": "Contradicted", "applicability_reason": "The reversal changes the intended action shot.", "uncertainty_note": null}], "findings": [{"finding_id": "ISSUE1", "related_fact_id": "F1", "category": "critical_action", "comparison_status": "Contradicted", "severity": "High", "screenplay_evidence": "Arjun offers the red envelope to Meera", "prompt_evidence": "Meera offers the red envelope to Arjun", "explanation": "The giver and recipient have been reversed.", "suggested_fix": "Make Arjun the giver and Meera the recipient.", "uncertainty_note": null}], "suggested_corrected_prompt": "Arjun offers the red envelope to Meera."},
+      "expected_overall_status": "Review Required"
+    },
+    {
+      "id": "P5-04", "scenario": "Required burning missing, not contradicted by holding",
+      "input": {"screenplay_text": "Meera burns the letter in the fireplace.", "video_prompt": "Meera holds the letter near the fireplace, dramatic light.", "shot_type": "Action shot", "shot_intent": "Show the letter burning completely."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "critical_action", "entity": "Meera", "required_detail": "Meera burns the letter.", "source_evidence": "burns the letter in the fireplace", "comparison_status": "Missing", "applicability_reason": "Burning is the intended action; holding it nearby is not sufficient.", "uncertainty_note": null}], "findings": [{"finding_id": "ISSUE1", "related_fact_id": "F1", "category": "critical_action", "comparison_status": "Missing", "severity": "High", "screenplay_evidence": "burns the letter in the fireplace", "prompt_evidence": null, "explanation": "The prompt never specifies that the letter burns.", "suggested_fix": "Depict Meera burning the letter in the fireplace.", "uncertainty_note": null}], "suggested_corrected_prompt": "Meera burns the letter in the fireplace, dramatic light."},
+      "expected_overall_status": "Review Required"
+    },
+    {
+      "id": "P5-05", "scenario": "Generic man cannot confidently be called Arjun",
+      "input": {"screenplay_text": "Arjun enters wearing a green jacket.", "video_prompt": "A man enters wearing a green jacket.", "shot_type": "Character interaction", "shot_intent": "Show the entering character, whose identity must be clear."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "character_identity_position", "entity": "Arjun", "required_detail": "Arjun is the entering man.", "source_evidence": "Arjun enters", "comparison_status": "Ambiguous", "applicability_reason": "The entering man is relevant, but his identity is unspecified.", "uncertainty_note": "The generic man might be Arjun, but the prompt does not establish it."}], "findings": [{"finding_id": "ISSUE1", "related_fact_id": "F1", "category": "character_identity_position", "comparison_status": "Ambiguous", "severity": "Medium", "screenplay_evidence": "Arjun enters", "prompt_evidence": "A man", "explanation": "The generic man could be Arjun or someone else.", "suggested_fix": "Ask the artist to confirm whether the man is Arjun.", "uncertainty_note": "Identity is unproven."}], "suggested_corrected_prompt": "A man enters wearing a green jacket."},
+      "expected_overall_status": "Insufficient Context"
+    },
+    {
+      "id": "P5-06", "scenario": "Unfamiliar Zoya costume contradiction while preserving light",
+      "input": {"screenplay_text": "Zoya wears a yellow raincoat in the alley.", "video_prompt": "Zoya in a purple raincoat stands in the alley, teal backlight.", "shot_type": "Character close-up", "shot_intent": "Show Zoya's raincoat clearly."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "explicit_visual_attribute", "entity": "Zoya", "required_detail": "Zoya's coat is yellow.", "source_evidence": "yellow raincoat", "comparison_status": "Contradicted", "applicability_reason": "The coat color is visible and expressly scripted.", "uncertainty_note": null}], "findings": [{"finding_id": "ISSUE1", "related_fact_id": "F1", "category": "explicit_visual_attribute", "comparison_status": "Contradicted", "severity": "Medium", "screenplay_evidence": "yellow raincoat", "prompt_evidence": "purple raincoat", "explanation": "The prompt changes Zoya's explicit costume color.", "suggested_fix": "Replace purple raincoat with yellow raincoat.", "uncertainty_note": null}], "suggested_corrected_prompt": "Zoya in a yellow raincoat stands in the alley, teal backlight."},
+      "expected_overall_status": "Review Required"
+    },
+    {
+      "id": "P5-07", "scenario": "Hindi-English mixed equivalent costume wording",
+      "input": {"screenplay_text": "रीमा लाल दुपट्टा पहनकर कमरे में आती है।", "video_prompt": "रीमा red dupatta में कमरे में आती है, cinematic low-key lighting.", "shot_type": "Full dramatic beat", "shot_intent": "Show Reema entering in the scripted outfit."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "explicit_visual_attribute", "entity": "रीमा", "required_detail": "रीमा wears a red dupatta.", "source_evidence": "लाल दुपट्टा", "comparison_status": "Supported", "applicability_reason": "Her visible outfit is described in the entrance shot.", "uncertainty_note": null}], "findings": [], "suggested_corrected_prompt": "रीमा red dupatta में कमरे में आती है, cinematic low-key lighting."},
+      "expected_overall_status": "No Significant Issues Detected"
+    },
+    {
+      "id": "P5-08", "scenario": "Unfamiliar Kabir's earlier action is irrelevant to sign close-up",
+      "input": {"screenplay_text": "Kabir unlocks the gate, then leaves. Wind shakes a broken sign.", "video_prompt": "Macro close-up of the broken sign shaking in the wind.", "shot_type": "Prop close-up", "shot_intent": "Only the broken sign after Kabir has gone."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "critical_action", "entity": "Kabir", "required_detail": "Kabir previously unlocked the gate.", "source_evidence": "Kabir unlocks the gate", "comparison_status": "Not Applicable", "applicability_reason": "The gate opening already occurred before the sign insert.", "uncertainty_note": null}, {"fact_id": "F2", "category": "important_prop", "entity": null, "required_detail": "The broken sign shakes in the wind.", "source_evidence": "Wind shakes a broken sign", "comparison_status": "Supported", "applicability_reason": "The sign is the chosen insert subject.", "uncertainty_note": null}], "findings": [], "suggested_corrected_prompt": "Macro close-up of the broken sign shaking in the wind."},
+      "expected_overall_status": "No Significant Issues Detected"
+    },
+    {
+      "id": "P5-09", "scenario": "Unfamiliar position contradiction",
+      "input": {"screenplay_text": "Arjun stands behind Meera at the door.", "video_prompt": "Arjun stands in front of Meera by the doorway.", "shot_type": "Character interaction", "shot_intent": "Show the relative positions of Arjun and Meera."},
+      "expected": {"facts": [{"fact_id": "F1", "category": "character_identity_position", "entity": "Arjun", "required_detail": "Arjun stands behind Meera.", "source_evidence": "Arjun stands behind Meera", "comparison_status": "Contradicted", "applicability_reason": "Their relative positions are the subject of the shot.", "uncertainty_note": null}], "findings": [{"finding_id": "ISSUE1", "related_fact_id": "F1", "category": "character_identity_position", "comparison_status": "Contradicted", "severity": "Medium", "screenplay_evidence": "Arjun stands behind Meera", "prompt_evidence": "Arjun stands in front of Meera", "explanation": "The prompt swaps the required relative placement.", "suggested_fix": "Change in front of to behind.", "uncertainty_note": null}], "suggested_corrected_prompt": "Arjun stands behind Meera by the doorway."},
+      "expected_overall_status": "Review Required"
+    }
+  ]
+}

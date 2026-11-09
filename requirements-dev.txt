@@ -1,0 +1,3 @@
+# Install these only for local / GitHub Actions tests.
+-r requirements.txt
+pytest==9.2.0

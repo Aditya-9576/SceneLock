@@ -1,0 +1,3 @@
+﻿"analysis_id","episode_id","scene_id","shot_id","finding_id","related_fact_id","category","status","comparison_status","severity","screenplay_evidence","prompt_evidence","explanation","suggested_fix","uncertainty_note","human_decision"
+"ff009dd5-fc2f-4889-866c-62a4712f6c93","EP-यू1","SC1","SH1","ISSUE1","F1","explicit_visual_attribute","Contradicted","Contradicted","Medium","लाल दुपट्टा","blue dupatta","पोशाक बदल गई: red, scripted dupatta versus blue; keep the dialogue, including ""रुको, अभी!"".
+Review the costume before generation.","Change blue to red, preserve 'रुको, अभी!' and the original light.","","Needs further review"
